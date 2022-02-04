@@ -1,10 +1,12 @@
 #! /Users/tannerwilliams/Desktop/ME 499/ME499_Lab_4_Plotting
 from msd import MassSpringDamper
-from utils import simulate_gachapon
+from utils import simulate_gachapon, random_list
+from counter import get_element_counts
 import matplotlib.pyplot as plt
+import time
 
 
-""" Initial values of system for Problem 1: Spring Damper System """
+""" Problem 1: Spring Damper System """
 mass = 1.0  # mass
 spring = 5.0  # spring constant
 damper = 2.5  # damping ratio
@@ -25,10 +27,10 @@ plt.title('Spring-Damper System with MassSpringDamper ODE Model')
 plt.grid()
 plt.savefig('Problem1.png')
 plt.show()
-# References:
+# References: https://matplotlib.org/stable/tutorials/introductory/pyplot.html
 
 
-""" Initial values of system for Problem 2: Histogram of the Gachapan """
+"""Problem 2: Histogram of the Gachapan """
 n_prizes = 15  # Number of possible prizes
 n_success = 1000  # Win all 15 prizes 1000 times
 stats = []  # a place to store
@@ -44,3 +46,23 @@ plt.grid()
 plt.savefig('Problem2.png')
 plt.show()
 # References: https://pythonspot.com/matplotlib-histogram/
+
+
+""" Problem 3: Algorithmic runtimes """
+runtimes = []
+lists = list(range(50, 2550, 50))
+for length in range(50, 2550, 50):
+    rand_list = random_list(length)
+    t1 = time.time()  # timestamp before function
+    get_element_counts(rand_list)
+    t2 = time.time()  # timestamp after function
+    runtimes.append(t2-t1)  # save runtime to list
+
+plt.scatter(lists, runtimes)
+plt.xlabel('List Length')
+plt.ylabel('Run-time')
+plt.title('Runtime of Function Given Varying List-lengths')
+plt.grid()
+plt.savefig('Problem3.png')
+plt.show()
+# References: https://matplotlib.org/stable/gallery/shapes_and_collections/scatter.html

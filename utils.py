@@ -31,14 +31,24 @@ def simulate_gachapon(n_prizes):
     else:
         return len(prize_list)
 
-
-# if __name__ == "__main__":
-#     simulate_gachapon(15)
-
-
 """
 References: 
 https://docs.python.org/3/library/random.html
 https://www.delftstack.com/howto/python/python-list-from-1-to-n/
 https://www.geeksforgeeks.org/python-initialize-a-dictionary-with-only-keys-from-a-list/
 """
+
+
+def random_list(n_length):
+    myrandomlist = []
+    for i in range(0, n_length):
+        # Draw a random number from possible prize range
+        draw = random.randrange(0, n_length, 1)
+        # Add new prize to current prizes
+        myrandomlist.append(draw)
+    return myrandomlist
+
+
+if __name__ == "__main__":
+    # simulate_gachapon(15)
+    print(random_list(10))
