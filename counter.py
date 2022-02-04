@@ -28,3 +28,8 @@ def count_element(input_list, target):
             count += 1
 
     return count
+    
+    
+# if __name__ == "__main__":
+#     print(get_element_counts([1, 'w', 4]))
+#     print(count_element([1, 'm', 4], 'm'))
