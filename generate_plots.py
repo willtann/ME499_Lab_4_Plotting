@@ -1,5 +1,6 @@
 #! /Users/tannerwilliams/Desktop/ME 499/ME499_Lab_4_Plotting
 from msd import MassSpringDamper
+from utils import simulate_gachapon
 import matplotlib.pyplot as plt
 
 
@@ -24,6 +25,22 @@ plt.title('Spring-Damper System with MassSpringDamper ODE Model')
 plt.grid()
 plt.savefig('Problem1.png')
 plt.show()
+# References:
 
 
 """ Initial values of system for Problem 2: Histogram of the Gachapan """
+n_prizes = 15  # Number of possible prizes
+n_success = 1000  # Win all 15 prizes 1000 times
+stats = []  # a place to store
+
+for game in range(0, n_success):
+    stats.append(simulate_gachapon(n_prizes))
+
+n, bins, patches = plt.hist(stats, 50, facecolor='blue', alpha=0.5)
+plt.xlabel('Happy Meals')
+plt.ylabel('Probability')
+plt.title('How many Happy Meals until you collect all 15 prizes?')
+plt.grid()
+plt.savefig('Problem2.png')
+plt.show()
+# References: https://pythonspot.com/matplotlib-histogram/
