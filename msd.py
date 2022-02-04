@@ -3,6 +3,7 @@
 from scipy.integrate import odeint
 from numpy import arange
 
+
 class MassSpringDamper:
     """
     Simulated mass-spring-damper system, using the ode solver from scipy
@@ -41,7 +42,7 @@ class MassSpringDamper:
         state = odeint(lambda s,t: self.equation(s, t), initial_state, times)
 
         # Return the states (as [x, x_dot]) and the simulation timesteps
-        return state,times
+        return state, times
     
     # This function takes the current state [x, x_dot] and returns the
     # next velocity and acceleration [x_dot and x_dot_dot].  The
@@ -59,4 +60,5 @@ class MassSpringDamper:
 
 if __name__ == '__main__':
     smd = MassSpringDamper(m=10.0, k=10.0, c=1.0)
-    state,t = smd.simulate(0.0, 1.0)
+    state, t = smd.simulate(0.0, 1.0)
+
