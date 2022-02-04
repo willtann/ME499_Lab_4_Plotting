@@ -26,10 +26,12 @@ def simulate_gachapon(n_prizes):
         # Add new prize to count of that same prize
         for key in prizes:
             if draw == key:
-                prize_dist[key] += 1  # https://www.kite.com/python/answers/how-to-increment-a-value-in-a-dictionary-in-python
+                prize_dist[key] += 1
+                # https://www.kite.com/python/answers/how-to-increment-a-value-in-a-dictionary-in-python
             # print('prize_dist ', prize_dist)
     else:
         return len(prize_list)
+
 
 """
 References: 
